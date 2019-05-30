@@ -12,7 +12,7 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 module.exports =smart(webpackCommonConf, {
   mode: 'production',
   output: {
-    filename: 'bundle.[contentHash:8].js',
+    filename: '[name].[contentHash:8].js',
     path: distPath
   },
   module: {
@@ -39,6 +39,15 @@ module.exports =smart(webpackCommonConf, {
   ],
   devtool: '#@source-map',
   optimization: {
-    minimizer: [new TerserWebpackPlugin({}), new OptimizeCssAssetsWebpackPlugin({})]
+    // minimizer: [new TerserWebpackPlugin({}), new OptimizeCssAssetsWebpackPlugin({})]
+    splitChunks: {
+      cacheGroups: {
+        common: {
+          chunks: 'initial',
+          minSize: 0,
+          minChunks: 2
+        }
+      }
+    }
   }
 });
