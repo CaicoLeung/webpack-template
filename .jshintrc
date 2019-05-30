@@ -1,0 +1,10 @@
+{
+  "esversion": 7,
+  "curly": true,
+  "eqeqeq": true,
+  "futurehostile": true,
+  "notypeof": true,
+  "shadow": "inner",
+  "unused": true,
+  "asi": false
+}

@@ -1,0 +1,22 @@
+body {
+  background-image: url('../img/yungchoyee_58468377_242428489961890_6624257793446911275_n.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 33.3% 33.3% 33.3%;
+  grid-template-rows: 250px 250px 250px;
+
+  .cell-item {
+    text-align: center;
+    border: 1px solid darkcyan;
+    transform: rotate(70deg)  ;
+    -webkit-transform: rotate(70deg)  ;
+    -moz-transform: rotate(70deg)  ;
+    -ms-transform: rotate(70deg)  ;
+    -o-transform: rotate(70deg)  ;
+}
+}
