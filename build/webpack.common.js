@@ -6,7 +6,7 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
-    index: path.join(srcPath, 'index.js'),
+    index: path.join(srcPath, 'index.ts'),
   },
   module: {
     rules: [
@@ -44,6 +44,11 @@ module.exports = {
       {
         test: /.html$/,
         use: 'html-withimg-loader'
+      },
+      {
+        test: /.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
       }
     ]
   },
@@ -57,6 +62,7 @@ module.exports = {
   resolve: {
     alias: {
       '@s': path.resolve(__dirname, '../src')
-    }
+    },
+    extensions: ['.tsx', '.ts', '.js']
   }
 };

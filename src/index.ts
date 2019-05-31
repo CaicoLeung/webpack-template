@@ -1,13 +1,20 @@
 import '@s/assets/css/index.scss';
 import '@s/common';
 
-console.log("第几行");
-
 window.onload = function() {
-  const button = document.querySelector('#go');
+  const button: Element = document.querySelector('#go');
   button.addEventListener('click', function() {
     import('@s/dynamicData').then(res => {
       console.log(res.default.message);
     }).catch(err => console.error(err));
   });
 };
+
+function caico() {
+  var a = 12;
+  return function() {
+    console.log(a);
+  }
+}
+
+caico()();
