@@ -2,14 +2,13 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackCommonConf = require('./webpack.common');
 const { smart } = require('webpack-merge');
-const srcPath = path.join(__dirname, '..', 'src');
 const distPath = path.join(__dirname, '..', 'dist');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const TerserWebpackPlugin = require('terser-webpack-plugin');
+// const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 
-module.exports =smart(webpackCommonConf, {
+module.exports = smart(webpackCommonConf, {
   mode: 'production',
   output: {
     filename: '[name].[contentHash:8].js',
@@ -29,7 +28,7 @@ module.exports =smart(webpackCommonConf, {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin.default(),
+    new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       ENV: JSON.stringify('production')
     }),
