@@ -6,10 +6,16 @@ const autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
-    index: path.join(srcPath, 'index.ts'),
+    index: path.join(srcPath, 'index.ts')
   },
   module: {
     rules: [
+      {
+        test: /\.(js|ts)$/,
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        enforce: 'pre'
+      },
       {
         test: /\.js$/,
         loader: ['babel-loader'],
