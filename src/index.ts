@@ -1,5 +1,7 @@
 import '@s/assets/css/base.css';
 import '@s/assets/css/main.scss';
-import Greeter from './test/decorators';
+import Greeter from './test/classDecorotor';
 
-console.log(new Greeter('world').greet());
+const greeting = new Greeter('caico');
+console.log(greeting.greet());
+console.log(typeof Greeter);
