@@ -1,4 +1,4 @@
-import { Context } from 'vm';
+import { Context } from 'vm'
 
 /**
  * @constructor person
@@ -21,29 +21,29 @@ export default class Person {
   x: number;
   y: number;
 
-  index: number = 0; // 帧数
-  direction: number = 0; // 方向
+  index = 0; // 帧数
+  direction = 0; // 方向
   width: number;
   height: number;
 
   constructor (options: {
-    ctx: Context;
-    img: HTMLImageElement;
-    crosswiseFrame: number;
-    lengthwaysFrame: number;
-    x?: number;
-    y?: number;
-    speed?: number;
+    ctx: Context
+    img: HTMLImageElement
+    crosswiseFrame: number
+    lengthwaysFrame: number
+    x?: number
+    y?: number
+    speed?: number
   }) {
-    this.ctx = options.ctx;
-    this.img = options.img;
-    this.crosswiseFrame = options.crosswiseFrame;
-    this.lengthwaysFrame = options.crosswiseFrame;
-    this.speed = options.speed || 2;
-    this.x = options.x || 50;
-    this.y = options.y || 50;
-    this.width = this.img.width / this.crosswiseFrame;
-    this.height = this.img.height / this.lengthwaysFrame;
+    this.ctx = options.ctx
+    this.img = options.img
+    this.crosswiseFrame = options.crosswiseFrame
+    this.lengthwaysFrame = options.crosswiseFrame
+    this.speed = options.speed || 2
+    this.x = options.x || 50
+    this.y = options.y || 50
+    this.width = this.img.width / this.crosswiseFrame
+    this.height = this.img.height / this.lengthwaysFrame
   }
 
   draw () {
@@ -57,34 +57,34 @@ export default class Person {
       this.y,
       this.width,
       this.height
-    );
-    this.update();
+    )
+    this.update()
   }
 
   // 计算小人下一帧绘制所需的数据
   // 这里要更新小人某动作的第几帧
   // 还要更新小人最新的坐标
   update () {
-    this.index = ++this.index % this.crosswiseFrame;
+    this.index = ++this.index % this.crosswiseFrame
     switch (this.direction) {
     case 0:
-      this.y += this.speed;
-      this.y = this.y > this.ctx.canvas.width ? -this.height : this.y;
-      break;
+      this.y += this.speed
+      this.y = this.y > this.ctx.canvas.width ? -this.height : this.y
+      break
     case 1:
-      this.x -= this.speed;
-      this.x = this.x < -this.width ? this.ctx.canvas.width : this.x;
-      break;
+      this.x -= this.speed
+      this.x = this.x < -this.width ? this.ctx.canvas.width : this.x
+      break
     case 2:
-      this.x += this.speed;
-      this.x = this.x > this.ctx.canvas.width ? -this.width : this.x;
-      break;
+      this.x += this.speed
+      this.x = this.x > this.ctx.canvas.width ? -this.width : this.x
+      break
     case 3:
-      this.y -= this.speed;
-      this.y = this.y < -this.height ? this.ctx.canvas.height : this.y;
-      break;
+      this.y -= this.speed
+      this.y = this.y < -this.height ? this.ctx.canvas.height : this.y
+      break
     default:
-      throw Error('update错误');
+      throw Error('update错误')
     }
   }
 
@@ -92,19 +92,19 @@ export default class Person {
   changeDirection (keyCode: number) {
     switch (keyCode) {
     case 37:
-      this.direction = 1;
-      break;
+      this.direction = 1
+      break
     case 38:
-      this.direction = 3;
-      break;
+      this.direction = 3
+      break
     case 39:
-      this.direction = 2;
-      break;
+      this.direction = 2
+      break
     case 40:
-      this.direction = 0;
-      break;
+      this.direction = 0
+      break
     default:
-      throw Error('不合法的按键');
+      throw Error('不合法的按键')
     }
   }
 }

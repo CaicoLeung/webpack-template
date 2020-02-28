@@ -1,5 +1,5 @@
 function sealed (constructor: Function) {
-  Object.seal(constructor);
+  Object.seal(constructor)
 }
 
 @sealed
@@ -7,12 +7,12 @@ class Greeter {
   greeting: string;
 
   constructor (message: string) {
-    this.greeting = message;
+    this.greeting = message
   }
 
   greet () {
-    return 'Hello' + this.greeting;
+    return 'Hello' + this.greeting
   }
 }
 
-export default Greeter;
+export default Greeter

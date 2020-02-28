@@ -1,20 +1,21 @@
-function enumerable (value: boolean) {
+function enumerable(value: boolean) {
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    descriptor.enumerable = value;
-  };
+    descriptor.enumerable = value
+  }
 }
 
 class Greeter {
-  property = 'property';
-  greeting: string;
-  constructor (m: string) {
-    this.greeting = m;
+  property = 'property'
+  greeting: string
+
+  constructor(m: string) {
+    this.greeting = m
   }
 
   @enumerable(false)
-  greet () {
-    return 'Hello' + this.greeting;
+  greet() {
+    return 'Hello' + this.greeting
   }
 }
 
-export default Greeter;
+export default Greeter
