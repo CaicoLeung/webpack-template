@@ -1,11 +1,11 @@
 {
   "name": "caico-webpack-template",
   "version": "1.0.0",
-  "description": "",
-  "main": "webpack.config.js",
+  "description": "a webpack config",
+  "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.prod.js",
+    "dev": "webpack-dev-server --config webpack/webpack.dev.js",
+    "build": "webpack --config webpack/webpack.prod.js",
     "lint": "eslint --fix --ext .js,.ts app/",
     "stylelint": "stylelint --fix --syntax scss src/**/*.scss"
   },
@@ -61,6 +61,8 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "@types/node": "^13.7.6",
+    "@types/webpack": "^4.41.7",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "eslint-config-prettier": "^6.10.0",

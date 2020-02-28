@@ -1,10 +1,10 @@
-const path = require('path');
-const webpack = require('webpack');
-const webpackCommonConf = require('./webpack.common');
-const { smart } = require('webpack-merge');
-const distPath = path.join(__dirname, '..', 'dist');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const webpackCommonConf = require('./webpack.common')
+const { smart } = require('webpack-merge')
+const distPath = path.join(__dirname, '..', 'dist')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // const TerserWebpackPlugin = require('terser-webpack-plugin');
 // const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 
@@ -33,7 +33,8 @@ module.exports = smart(webpackCommonConf, {
       ENV: JSON.stringify('production')
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/main.[contentHash:8].css'
+      filename: 'css/main.[contentHash:8].css',
+      hmr: true
     })
   ],
   devtool: '#@source-map',
@@ -49,4 +50,4 @@ module.exports = smart(webpackCommonConf, {
       }
     }
   }
-});
+})

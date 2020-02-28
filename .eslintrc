@@ -37,7 +37,7 @@
     "es6": true,
     "node": true,
     "browser": true,
-    "commonjs": false,
+    "commonjs": true,
     "mocha": true
   },
   "globals": {},
