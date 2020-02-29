@@ -1,8 +1,8 @@
-const path = require('path');
-const srcPath = path.join(__dirname, '..', 'src');
-const distPath = path.join(__dirname, '..', 'dist');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const autoprefixer = require('autoprefixer');
+const path = require('path')
+const srcPath = path.join(__dirname, '..', 'src')
+const distPath = path.join(__dirname, '..', 'dist')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: {
@@ -53,7 +53,7 @@ module.exports = {
       },
       {
         test: /.tsx?$/,
-        use: 'ts-loader',
+        use: 'awesome-typescript-loader',
         exclude: /node_modules/
       }
     ]
@@ -70,5 +70,8 @@ module.exports = {
       '@s': path.resolve(__dirname, '../src')
     },
     extensions: ['.tsx', '.ts', '.js']
+  },
+  optimization: {
+    usedExports: true
   }
-};
+}

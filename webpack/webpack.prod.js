@@ -5,8 +5,8 @@ const { smart } = require('webpack-merge')
 const distPath = path.join(__dirname, '..', 'dist')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-// const TerserWebpackPlugin = require('terser-webpack-plugin');
-// const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin')
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = smart(webpackCommonConf, {
   mode: 'production',
@@ -39,7 +39,17 @@ module.exports = smart(webpackCommonConf, {
   ],
   devtool: '#@source-map',
   optimization: {
-    // minimizer: [new TerserWebpackPlugin({}), new OptimizeCssAssetsWebpackPlugin({})]
+    minimizer: [
+      new TerserWebpackPlugin({ // 压缩js代码
+        cache: true, // 启用文件缓存
+        parallel: true, // 使用多进程并行执行任务来提高构建效率
+        sourceMap: true, // 将错误消息位置映射到模块
+        terserOptions: {
+          drop_console: true, // 打包时剔除所有console.log
+          drop_debugger: true // 打包时剔除所有debugger
+        }
+      }),
+      new OptimizeCssAssetsWebpackPlugin({})], // 压缩css代码
     splitChunks: {
       cacheGroups: {
         common: {

@@ -17,6 +17,9 @@
       "dom"
     ]
   },
+  "awesomeTypescriptLoaderOptions": {
+    /* ... */
+  },
   "include": [
     "webpack",
     "src/**/*"
