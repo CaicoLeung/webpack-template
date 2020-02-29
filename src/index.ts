@@ -1,13 +1,13 @@
 import '@s/assets/css/base.css'
 import '@s/assets/css/main.scss'
-// import Greeter from './test/classDecorotor';
-import { createCtx } from './test/createCtx'
+import './react-index'
+import Greeter from './test/classDecorotor'
 import Person from './test/litterGame'
+import { createCtx } from './test/createCtx'
 import { setInterval } from 'timers'
 
-// const greeting = new Greeter('caico');
-// console.log(greeting.greet());
-// console.log(typeof Greeter);
+const greeting = new Greeter('caico')
+console.log(greeting.greet())
 
 const ctx = createCtx('#canvas', 700, 500)
 const img: HTMLImageElement = new Image()
