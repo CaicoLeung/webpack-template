@@ -19,7 +19,7 @@ module.exports = smart(webpackCommonConf, {
   devServer: {
     port: 3000,
     historyApiFallback: true,
-    open: true, // 自动打开浏览器
+    open: false, // 自动打开浏览器
     hot: true, // 开启热替换, css代码跟新不刷新页面
     progress: true,
     contentBase: distPath,

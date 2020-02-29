@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack/webpack.dev.js",
     "build": "webpack --config webpack/webpack.prod.js",
-    "lint": "eslint --fix --ext .js,.ts app/",
+    "lint": "eslint --fix --ext .js,.ts src/",
     "stylelint": "stylelint --fix --syntax scss src/**/*.scss"
   },
   "lint-staged": {

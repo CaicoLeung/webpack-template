@@ -1,6 +1,6 @@
 import '@s/assets/css/base.css'
 import '@s/assets/css/main.scss'
-import './react-index'
+import './reactApp'
 import Greeter from './test/classDecorotor'
 import Person from './test/litterGame'
 import { createCtx } from './test/createCtx'
